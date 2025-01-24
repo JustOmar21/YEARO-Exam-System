@@ -107,7 +107,7 @@ CREATE TABLE Question (
     Body NVARCHAR(MAX) not null,
     Type NVARCHAR(10) not null check(Type in ('T/F','MCQ')),
     Degree INT not null check(Degree between 1 and 5), 
-    CorrectChoice NVARCHAR(255) not null check(CorrectChoice between 1 and 4)
+    CorrectChoice int not null check(CorrectChoice between 1 and 4)
 );
 
 -- Create Choice Table
