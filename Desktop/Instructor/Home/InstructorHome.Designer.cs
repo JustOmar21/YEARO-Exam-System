@@ -37,6 +37,7 @@
             ClientSize = new Size(800, 450);
             Name = "InstructorHome";
             Text = "Instructor Home";
+            FormClosed += InstructorHome_FormClosed;
             ResumeLayout(false);
         }
 

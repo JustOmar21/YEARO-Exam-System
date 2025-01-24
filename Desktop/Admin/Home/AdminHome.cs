@@ -12,16 +12,17 @@ namespace Desktop
 {
     public partial class AdminHome : Form
     {
-        Form Parent;
-        public AdminHome(Form Parent)
+        Form Super;
+        public AdminHome(Form Super)
         {
             InitializeComponent();
-            this.Parent = Parent;
+            this.Super = Super;
+            Utilites.InitForm(this, "Admin Home");
         }
 
         private void AdminHome_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Parent.Show();
+            Super.Show();
         }
     }
 }

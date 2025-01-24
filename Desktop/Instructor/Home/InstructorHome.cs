@@ -12,9 +12,17 @@ namespace Desktop
 {
     public partial class InstructorHome : Form
     {
-        public InstructorHome()
+        Form Super;
+        public InstructorHome(Form Super)
         {
             InitializeComponent();
+            this.Super = Super;
+            Utilites.InitForm(this, "Instructor Home");
+        }
+
+        private void InstructorHome_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Super.Show();
         }
     }
 }
