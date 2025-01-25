@@ -1,4 +1,6 @@
-﻿using Desktop.Models;
+﻿using Desktop.Data;
+using Desktop.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,7 @@ namespace Desktop.InstructorForms.Students
 {
     public partial class StudentsForm : Form
     {
+        ExamContext context = new();
         Form super;
         Course course;
         public StudentsForm(Form super, Course course)
@@ -21,11 +24,60 @@ namespace Desktop.InstructorForms.Students
             this.super = super;
             this.course = course;
             Utilites.InitForm(this, $"Students of '{course.Name}'");
+            FillTable();
+            searchTXT.PlaceholderText = "Search by Name";
         }
 
         private void StudentsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             super.Show();
+        }
+
+        private void FillTable()
+        {
+            var students = context.StudentCourses
+                .Include(crs => crs.Course)
+                .Include(crs => crs.Student)
+                .ThenInclude(ppl => ppl.Person)
+                .Where(crs => crs.Course.ID == course.ID && crs.Student.Person.Name.Contains(searchTXT.Text))
+                .ToList();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Grade");
+            dt.Columns.Add("Exams Taken");
+            foreach (var student in students)
+            {
+                float totalObtained = context.Student_Exams
+                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID)
+                    .Sum(se => se.Grade) ?? 0;  // Handle null grades as 0
+
+                var examTaken = context.Student_Exams.Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID).Count();
+
+                // Get maximum possible grade for this course
+                float maxPossible = context.Student_Exams
+                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID)
+                    .SelectMany(se => se.Exam.Answers.Select(a => a.Question.Degree))
+                    .Sum();
+                var percentage = maxPossible > 0
+                                ? $"{((totalObtained / maxPossible)):P}"
+                                : "No Exams Yet";
+                dt.Rows.Add(student.StdID, student.Student.Person.Name, percentage, examTaken);
+            }
+            studentDATA.DataSource = dt;
+            studentDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            studentDATA.Columns[^1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            studentDATA.AllowUserToAddRows = false;
+        }
+
+        private void returnBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void searchTXT_TextChanged(object sender, EventArgs e)
+        {
+            FillTable();
         }
     }
 }
