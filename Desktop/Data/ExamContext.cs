@@ -40,12 +40,50 @@ public partial class ExamContext : DbContext
 
     public virtual DbSet<Topic> Topics { get; set; }
 
+    public virtual DbSet<Ins_Crs> InstructorCourses { get; set; }
+    
+    public virtual DbSet<Std_Crs> StudentCourses { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=.;Database=YEARO Exam System;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Ins_Crs>(entity =>
+        {
+            entity.HasKey(e => new { e.InsID, e.CrsID }).HasName("PK__Ins_Crs__52BC6EE43E5627D0");
+
+            entity.ToTable("Ins_Crs");
+
+            entity.HasOne(e=>e.Instructor).WithMany(p=>p.Courses)
+            .HasForeignKey(e=>e.InsID)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasConstraintName("FK__Ins_Crs__InsID__571DF1D5");
+
+            entity.HasOne(e => e.Course).WithMany(p => p.Instructors)
+            .HasForeignKey(e => e.CrsID)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasConstraintName("FK__Ins_Crs__CrsID__5812160E");
+        });
+
+        modelBuilder.Entity<Std_Crs>(entity =>
+        {
+            entity.HasKey(e => new { e.StdID, e.CrsID }).HasName("PK__Std_Crs__9A708D54FCA9C1D6");
+
+            entity.ToTable("Std_Crs");
+
+            entity.HasOne(e => e.Student).WithMany(p => p.Courses)
+            .HasForeignKey(e => e.StdID)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasConstraintName("FK__Std_Crs__StdID__534D60F1");
+
+            entity.HasOne(e => e.Course).WithMany(p => p.Students)
+            .HasForeignKey(e => e.CrsID)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasConstraintName("FK__Std_Crs__CrsID__5441852A");
+        });
+
         modelBuilder.Entity<Answer_Exam>(entity =>
         {
             entity.HasKey(e => new { e.ExamID, e.QID, e.StdID }).HasName("PK__Answer_E__BB8BE975750EB0CA");
@@ -129,21 +167,6 @@ public partial class ExamContext : DbContext
             entity.HasOne(d => d.Person).WithOne(p => p.Instructor)
                 .HasForeignKey<Instructor>(d => d.InsID)
                 .HasConstraintName("FK__Instructo__InsID__4AB81AF0");
-
-            entity.HasMany(d => d.Courses).WithMany(p => p.Instructors)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Ins_Cr",
-                    r => r.HasOne<Course>().WithMany()
-                        .HasForeignKey("CrsID")
-                        .HasConstraintName("FK__Ins_Crs__CrsID__5812160E"),
-                    l => l.HasOne<Instructor>().WithMany()
-                        .HasForeignKey("InsID")
-                        .HasConstraintName("FK__Ins_Crs__InsID__571DF1D5"),
-                    j =>
-                    {
-                        j.HasKey("InsID", "CrsID").HasName("PK__Ins_Crs__52BC6EE43E5627D0");
-                        j.ToTable("Ins_Crs");
-                    });
         });
 
         modelBuilder.Entity<Intake>(entity =>
@@ -211,21 +234,6 @@ public partial class ExamContext : DbContext
             entity.HasOne(d => d.Person).WithOne(p => p.Student)
                 .HasForeignKey<Student>(d => d.StdID)
                 .HasConstraintName("FK__Student__StdID__47DBAE45");
-
-            entity.HasMany(d => d.Courses).WithMany(p => p.Students)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Std_Cr",
-                    r => r.HasOne<Course>().WithMany()
-                        .HasForeignKey("CrsID")
-                        .HasConstraintName("FK__Std_Crs__CrsID__5441852A"),
-                    l => l.HasOne<Student>().WithMany()
-                        .HasForeignKey("StdID")
-                        .HasConstraintName("FK__Std_Crs__StdID__534D60F1"),
-                    j =>
-                    {
-                        j.HasKey("StdID", "CrsID").HasName("PK__Std_Crs__9A708D54FCA9C1D6");
-                        j.ToTable("Std_Crs");
-                    });
         });
 
         modelBuilder.Entity<Student_Exam>(entity =>

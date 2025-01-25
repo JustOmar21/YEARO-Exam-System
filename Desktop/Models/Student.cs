@@ -19,5 +19,5 @@ public partial class Student
 
     public virtual ICollection<Student_Exam> Exams { get; set; } = new List<Student_Exam>();
 
-    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+    public virtual ICollection<Std_Crs> Courses { get; set; } = new List<Std_Crs>();
 }

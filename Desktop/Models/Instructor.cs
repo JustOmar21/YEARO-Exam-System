@@ -13,5 +13,5 @@ public partial class Instructor
     [ForeignKey("InsID")]
     public virtual Person Person { get; set; } = null!;
 
-    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+    public virtual ICollection<Ins_Crs> Courses { get; set; } = new List<Ins_Crs>();
 }
