@@ -85,11 +85,15 @@ CREATE TABLE Ins_Crs(
 CREATE TABLE Exam (
     ID INT IDENTITY PRIMARY KEY,
     Name NVARCHAR(100),
-    StartDate DATE not null,
+    StartDate DATETIME not null,
     EndDate as DATEADD(hour, 1, startdate) PERSISTED,
     CrsID INT not null,
     FOREIGN KEY (CrsID) REFERENCES Course(ID),
 );
+-- fix for previous mistake
+alter table exam drop column enddate
+alter table exam alter column StartDate Datetime not null
+alter table exam add EndDate as DATEADD(hour, 1, startdate) PERSISTED
 
 -- Create Student_Exam Table
 CREATE TABLE Student_Exam (
@@ -113,10 +117,14 @@ CREATE TABLE Question (
 -- Create Choice Table
 CREATE TABLE Choice (
     QID INT,
-    Choice INT check(Choice between 1 and 4), 
+    Choice INT check(Choice between 1 and 4),
+	Body NVARCHAR(Max) not null,
     PRIMARY KEY (QID, Choice),
     FOREIGN KEY (QID) REFERENCES Question(ID)
 );
+
+-- added body Nvarchar(max)
+alter table choice add body nvarchar(max) not null 
 
 -- Create Take_Exam Table
 CREATE TABLE Answer_Exam (
