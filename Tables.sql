@@ -137,3 +137,4 @@ CREATE TABLE Answer_Exam (
     FOREIGN KEY (QID) REFERENCES Question(ID),
     FOREIGN KEY (StdID) REFERENCES Student(StdID)
 );
+select * from choise
