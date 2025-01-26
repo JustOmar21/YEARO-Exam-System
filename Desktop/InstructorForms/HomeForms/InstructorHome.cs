@@ -27,6 +27,10 @@ namespace Desktop
             this.super = super;
             Utilites.InitForm(this, $"My Courses : {Utilites.Person.Name}");
             searchTXT.PlaceholderText = "Search By Name";
+
+            idTXT.BackColor = UIConfig.SecondaryColorDark;
+            nameTXT.BackColor = UIConfig.SecondaryColorDark;
+            idTXT.ForeColor = nameTXT.ForeColor = Color.Black;
             FillTable();
         }
 
@@ -41,8 +45,8 @@ namespace Desktop
             {
                 var dataGrid = sender as DataGridView;
                 courseID = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[0].Value);
-                idLBL.Text = $"ID\n{courseID}";
-                nameLBL.Text = $"Name\n{dataGrid.Rows[e.RowIndex].Cells[1].Value}";
+                idTXT.Text = $"{courseID}";
+                nameTXT.Text = $"{dataGrid.Rows[e.RowIndex].Cells[1].Value}";
 
                 questionBTN.Enabled = examBTN.Enabled = studentBTN.Enabled = true;
             }
@@ -56,8 +60,8 @@ namespace Desktop
         private void FillTable()
         {
             courseID = 0;
-            idLBL.Text = "ID :";
-            nameLBL.Text = "Name :";
+            idTXT.Text = "";
+            nameTXT.Text = "";
             var myCourses = context.InstructorCourses
                 .Include(crs => crs.Course)
                 .ThenInclude(crs => crs.Students)
@@ -77,6 +81,7 @@ namespace Desktop
             courseDATA.DataSource = dt;
             courseDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             courseDATA.Columns[^1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            courseDATA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             courseDATA.AllowUserToAddRows = false;
             questionBTN.Enabled = examBTN.Enabled = studentBTN.Enabled = false;
         }
@@ -100,7 +105,7 @@ namespace Desktop
             }
             else
             {
-                QuestionForm form = new QuestionForm(this,course);
+                QuestionForm form = new QuestionForm(this, course);
                 form.Show();
                 Hide();
             }
@@ -137,6 +142,16 @@ namespace Desktop
                 form.Show();
                 Hide();
             }
+        }
+
+        private void idTXT_Enter(object sender, EventArgs e)
+        {
+            idLBL.Focus();
+        }
+
+        private void nameTXT_Enter(object sender, EventArgs e)
+        {
+            idLBL.Focus();
         }
     }
 }

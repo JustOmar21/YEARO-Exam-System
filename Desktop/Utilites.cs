@@ -19,6 +19,8 @@ namespace Desktop
             form.StartPosition = FormStartPosition.CenterScreen;
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
             form.MaximizeBox = false;
+            form.MinimizeBox = false;
+            form.WindowState = FormWindowState.Maximized;
         }
     }
 }

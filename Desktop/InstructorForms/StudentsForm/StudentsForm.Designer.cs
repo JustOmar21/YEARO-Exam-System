@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             returnBTN = new Button();
             refreshBTN = new Button();
             searchTXT = new TextBox();
@@ -37,10 +38,11 @@
             // 
             // returnBTN
             // 
+            returnBTN.Font = new Font("Segoe UI", 25F);
             returnBTN.ForeColor = SystemColors.ControlText;
-            returnBTN.Location = new Point(400, 12);
+            returnBTN.Location = new Point(951, 12);
             returnBTN.Name = "returnBTN";
-            returnBTN.Size = new Size(388, 29);
+            returnBTN.Size = new Size(939, 60);
             returnBTN.TabIndex = 15;
             returnBTN.Text = "Return";
             returnBTN.UseVisualStyleBackColor = true;
@@ -48,35 +50,45 @@
             // 
             // refreshBTN
             // 
+            refreshBTN.Font = new Font("Segoe UI", 25F);
             refreshBTN.Location = new Point(12, 12);
             refreshBTN.Name = "refreshBTN";
-            refreshBTN.Size = new Size(388, 29);
+            refreshBTN.Size = new Size(939, 60);
             refreshBTN.TabIndex = 14;
             refreshBTN.Text = "Refresh";
             refreshBTN.UseVisualStyleBackColor = true;
             // 
             // searchTXT
             // 
-            searchTXT.Location = new Point(12, 47);
+            searchTXT.Font = new Font("Segoe UI", 25F);
+            searchTXT.Location = new Point(12, 78);
             searchTXT.Name = "searchTXT";
-            searchTXT.Size = new Size(776, 27);
+            searchTXT.Size = new Size(1878, 63);
             searchTXT.TabIndex = 13;
             searchTXT.TextChanged += searchTXT_TextChanged;
             // 
             // studentDATA
             // 
             studentDATA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            studentDATA.Location = new Point(12, 80);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 16F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            studentDATA.DefaultCellStyle = dataGridViewCellStyle1;
+            studentDATA.Location = new Point(12, 147);
             studentDATA.Name = "studentDATA";
             studentDATA.RowHeadersWidth = 51;
-            studentDATA.Size = new Size(776, 358);
+            studentDATA.Size = new Size(1878, 874);
             studentDATA.TabIndex = 12;
             // 
             // StudentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(returnBTN);
             Controls.Add(refreshBTN);
             Controls.Add(searchTXT);

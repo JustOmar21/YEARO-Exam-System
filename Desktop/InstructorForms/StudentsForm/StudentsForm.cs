@@ -67,6 +67,7 @@ namespace Desktop.InstructorForms.Students
             studentDATA.DataSource = dt;
             studentDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             studentDATA.Columns[^1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            studentDATA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             studentDATA.AllowUserToAddRows = false;
         }
 
