@@ -34,9 +34,9 @@ CREATE TABLE Person(
 -- Create Student Table
 CREATE TABLE Student (
     StdID INT PRIMARY KEY,
-    IntakeID INT Not Null,
+    IntakeID INT,
 	College NVARCHAR(255)
-    FOREIGN KEY (IntakeID) REFERENCES Intake(ID) on delete cascade,
+    FOREIGN KEY (IntakeID) REFERENCES Intake(ID) on delete set null,
 	FOREIGN KEY (StdID) REFERENCES Person(ID) on delete cascade
 );
 
@@ -59,7 +59,7 @@ CREATE TABLE Topic (
     ID INT IDENTITY PRIMARY KEY,
     Name NVARCHAR(100) not null,
     CrsID INT not null,
-    FOREIGN KEY (CrsID) REFERENCES Course(ID)
+    FOREIGN KEY (CrsID) REFERENCES Course(ID) on delete cascade
 );
 
 -- Create Teaches Table
@@ -88,7 +88,7 @@ CREATE TABLE Exam (
     StartDate DATETIME not null,
     EndDate as DATEADD(hour, 1, startdate) PERSISTED,
     CrsID INT not null,
-    FOREIGN KEY (CrsID) REFERENCES Course(ID),
+    FOREIGN KEY (CrsID) REFERENCES Course(ID) on delete cascade,
 );
 -- fix for previous mistake
 alter table exam drop column enddate
@@ -101,8 +101,8 @@ CREATE TABLE Student_Exam (
     ExamID INT,
     Grade INT, 
     PRIMARY KEY (StdID, ExamID),
-    FOREIGN KEY (StdID) REFERENCES Student(StdID),
-    FOREIGN KEY (ExamID) REFERENCES Exam(ID)
+    FOREIGN KEY (StdID) REFERENCES Student(StdID) on delete cascade,
+    FOREIGN KEY (ExamID) REFERENCES Exam(ID) on delete cascade
 );
 
 -- Create Question Table
@@ -111,7 +111,10 @@ CREATE TABLE Question (
     Body NVARCHAR(MAX) not null,
     Type NVARCHAR(10) not null check(Type in ('T/F','MCQ')),
     Degree INT not null check(Degree between 1 and 5), 
-    CorrectChoice int not null check(CorrectChoice between 1 and 4)
+    CorrectChoice int not null check(CorrectChoice between 1 and 4),
+	CrsID int not null,
+	isDeleted BIT default 0,
+	FOREIGN KEY (CrsID) REFERENCES Course(ID) on delete cascade
 );
 
 -- Create Choice Table
@@ -120,7 +123,7 @@ CREATE TABLE Choice (
     Choice INT check(Choice between 1 and 4),
 	Body NVARCHAR(Max) not null,
     PRIMARY KEY (QID, Choice),
-    FOREIGN KEY (QID) REFERENCES Question(ID)
+    FOREIGN KEY (QID) REFERENCES Question(ID) on delete cascade
 );
 
 -- added body Nvarchar(max)
@@ -133,7 +136,7 @@ CREATE TABLE Answer_Exam (
     StdID INT,
     Answer INT default 0,
     PRIMARY KEY (ExamID, QID, StdID), 
-    FOREIGN KEY (ExamID) REFERENCES Exam(ID),
+    FOREIGN KEY (ExamID) REFERENCES Exam(ID) on delete cascade,
     FOREIGN KEY (QID) REFERENCES Question(ID),
-    FOREIGN KEY (StdID) REFERENCES Student(StdID)
+    FOREIGN KEY (StdID) REFERENCES Student(StdID) on delete cascade
 );
