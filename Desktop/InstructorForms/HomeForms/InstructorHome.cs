@@ -70,16 +70,16 @@ namespace Desktop
                 .Where(crs => crs.InsID == Utilites.Person.ID && crs.Course.Name.Contains(searchTXT.Text))
                 .ToList();
             DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
+            dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Name");
-            dt.Columns.Add("# of Students");
-            dt.Columns.Add("# of Exams");
+            dt.Columns.Add("# of Students", typeof(int));
+            dt.Columns.Add("# of Exams", typeof(int));
             foreach (var course in myCourses)
             {
                 dt.Rows.Add(course.Course.ID, course.Course.Name, course.Course.Students.Count(), course.Course.Exams.Count());
             }
             courseDATA.DataSource = dt;
-            courseDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            courseDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             courseDATA.Columns[^1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             courseDATA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             courseDATA.AllowUserToAddRows = false;

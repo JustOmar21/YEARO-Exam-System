@@ -57,6 +57,7 @@
             courseDATA.DefaultCellStyle = dataGridViewCellStyle1;
             courseDATA.Location = new Point(12, 163);
             courseDATA.Name = "courseDATA";
+            courseDATA.ReadOnly = true;
             courseDATA.RowHeadersWidth = 51;
             courseDATA.Size = new Size(1156, 858);
             courseDATA.TabIndex = 0;
