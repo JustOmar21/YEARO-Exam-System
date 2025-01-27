@@ -110,11 +110,12 @@ public partial class ExamContext : DbContext
 
         modelBuilder.Entity<Choice>(entity =>
         {
-            entity.HasKey(e => new { e.QID, e.Choice1 }).HasName("PK__Choice__387F3533A01C340D");
+            entity.HasKey(e => new { e.QID, e.ChoiceNum }).HasName("PK__Choice__387F3533A01C340D");
 
             entity.ToTable("Choice");
 
-            entity.Property(e => e.Choice1).HasColumnName("Choice");
+            entity.Property(e => e.ChoiceNum).HasColumnName("Choice");
+            entity.Property(e => e.Body).HasColumnName("Body");
 
             entity.HasOne(d => d.Question).WithMany(p => p.Choices)
                 .HasForeignKey(d => d.QID)
@@ -213,6 +214,8 @@ public partial class ExamContext : DbContext
             entity.HasKey(e => e.ID).HasName("PK__Question__3214EC2723ECC411");
 
             entity.ToTable("Question");
+
+            entity.HasOne(d => d.Course).WithMany(p => p.Questions).HasForeignKey(p => p.CrsID);
 
             entity.Property(e => e.CorrectChoice).HasMaxLength(255);
             entity.Property(e => e.Type).HasMaxLength(10);
