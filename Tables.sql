@@ -90,10 +90,6 @@ CREATE TABLE Exam (
     CrsID INT not null,
     FOREIGN KEY (CrsID) REFERENCES Course(ID) on delete cascade,
 );
--- fix for previous mistake
-alter table exam drop column enddate
-alter table exam alter column StartDate Datetime not null
-alter table exam add EndDate as DATEADD(hour, 1, startdate) PERSISTED
 
 -- Create Student_Exam Table
 CREATE TABLE Student_Exam (
@@ -125,9 +121,6 @@ CREATE TABLE Choice (
     PRIMARY KEY (QID, Choice),
     FOREIGN KEY (QID) REFERENCES Question(ID) on delete cascade
 );
-
--- added body Nvarchar(max)
-alter table choice add body nvarchar(max) not null 
 
 -- Create Take_Exam Table
 CREATE TABLE Answer_Exam (
