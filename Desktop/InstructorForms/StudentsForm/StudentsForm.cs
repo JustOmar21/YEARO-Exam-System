@@ -42,10 +42,10 @@ namespace Desktop.InstructorForms.Students
                 .Where(crs => crs.Course.ID == course.ID && crs.Student.Person.Name.Contains(searchTXT.Text))
                 .ToList();
             DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
+            dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Name");
             dt.Columns.Add("Grade");
-            dt.Columns.Add("Exams Taken");
+            dt.Columns.Add("Exams Taken", typeof(int));
             foreach (var student in students)
             {
                 float totalObtained = context.Student_Exams
@@ -65,10 +65,10 @@ namespace Desktop.InstructorForms.Students
                 dt.Rows.Add(student.StdID, student.Student.Person.Name, percentage, examTaken);
             }
             studentDATA.DataSource = dt;
-            studentDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            studentDATA.Columns[^1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            studentDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             studentDATA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             studentDATA.AllowUserToAddRows = false;
+            
         }
 
         private void returnBTN_Click(object sender, EventArgs e)

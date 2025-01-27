@@ -42,7 +42,7 @@
             returnBTN.ForeColor = SystemColors.ControlText;
             returnBTN.Location = new Point(951, 12);
             returnBTN.Name = "returnBTN";
-            returnBTN.Size = new Size(939, 60);
+            returnBTN.Size = new Size(939, 85);
             returnBTN.TabIndex = 15;
             returnBTN.Text = "Return";
             returnBTN.UseVisualStyleBackColor = true;
@@ -53,7 +53,7 @@
             refreshBTN.Font = new Font("Segoe UI", 25F);
             refreshBTN.Location = new Point(12, 12);
             refreshBTN.Name = "refreshBTN";
-            refreshBTN.Size = new Size(939, 60);
+            refreshBTN.Size = new Size(939, 85);
             refreshBTN.TabIndex = 14;
             refreshBTN.Text = "Refresh";
             refreshBTN.UseVisualStyleBackColor = true;
@@ -61,7 +61,7 @@
             // searchTXT
             // 
             searchTXT.Font = new Font("Segoe UI", 25F);
-            searchTXT.Location = new Point(12, 78);
+            searchTXT.Location = new Point(12, 94);
             searchTXT.Name = "searchTXT";
             searchTXT.Size = new Size(1878, 63);
             searchTXT.TabIndex = 13;
@@ -78,10 +78,11 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             studentDATA.DefaultCellStyle = dataGridViewCellStyle1;
-            studentDATA.Location = new Point(12, 147);
+            studentDATA.Location = new Point(12, 163);
             studentDATA.Name = "studentDATA";
+            studentDATA.ReadOnly = true;
             studentDATA.RowHeadersWidth = 51;
-            studentDATA.Size = new Size(1878, 874);
+            studentDATA.Size = new Size(1878, 858);
             studentDATA.TabIndex = 12;
             // 
             // StudentsForm
@@ -89,10 +90,10 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(studentDATA);
             Controls.Add(returnBTN);
             Controls.Add(refreshBTN);
             Controls.Add(searchTXT);
-            Controls.Add(studentDATA);
             Name = "StudentsForm";
             Text = "Students";
             FormClosed += StudentsForm_FormClosed;
