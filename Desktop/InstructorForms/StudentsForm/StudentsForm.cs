@@ -49,14 +49,14 @@ namespace Desktop.InstructorForms.Students
             foreach (var student in students)
             {
                 float totalObtained = context.Student_Exams
-                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID)
+                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID && se.Exam.EndDate < DateTime.Now)
                     .Sum(se => se.Grade) ?? 0;  // Handle null grades as 0
 
-                var examTaken = context.Student_Exams.Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID).Count();
+                var examTaken = context.Student_Exams.Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID && se.Exam.EndDate < DateTime.Now).Count();
 
                 // Get maximum possible grade for this course
                 float maxPossible = context.Student_Exams
-                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID)
+                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID && se.Exam.EndDate < DateTime.Now)
                     .SelectMany(se => se.Exam.Answers.Select(a => a.Question.Degree))
                     .Sum();
                 var percentage = maxPossible > 0
