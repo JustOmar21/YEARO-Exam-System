@@ -232,6 +232,7 @@ namespace Desktop.InstructorForms
                 MessageBox.Show("The question you selected may have been already deleted", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             refreshBTN.PerformClick();
+            endViewBTN.PerformClick();
         }
 
         private void returnBTN_Click(object sender, EventArgs e)
