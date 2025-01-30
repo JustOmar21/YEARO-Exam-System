@@ -41,6 +41,8 @@
             deleteBTN = new Button();
             datePICK = new DateTimePicker();
             updateBTN = new Button();
+            studentsBTN = new Button();
+            questionsBTN = new Button();
             ((System.ComponentModel.ISupportInitialize)examDATA).BeginInit();
             SuspendLayout();
             // 
@@ -180,11 +182,37 @@
             updateBTN.Visible = false;
             updateBTN.Click += updateBTN_Click;
             // 
+            // studentsBTN
+            // 
+            studentsBTN.Font = new Font("Segoe UI", 25F);
+            studentsBTN.Location = new Point(1328, 706);
+            studentsBTN.Name = "studentsBTN";
+            studentsBTN.Size = new Size(562, 76);
+            studentsBTN.TabIndex = 77;
+            studentsBTN.Text = "View Students";
+            studentsBTN.UseVisualStyleBackColor = true;
+            studentsBTN.Visible = false;
+            studentsBTN.Click += studentsBTN_Click;
+            // 
+            // questionsBTN
+            // 
+            questionsBTN.Font = new Font("Segoe UI", 25F);
+            questionsBTN.Location = new Point(1328, 788);
+            questionsBTN.Name = "questionsBTN";
+            questionsBTN.Size = new Size(562, 76);
+            questionsBTN.TabIndex = 76;
+            questionsBTN.Text = "View Questions";
+            questionsBTN.UseVisualStyleBackColor = true;
+            questionsBTN.Visible = false;
+            questionsBTN.Click += questionsBTN_Click;
+            // 
             // ExamsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(studentsBTN);
+            Controls.Add(questionsBTN);
             Controls.Add(updateBTN);
             Controls.Add(datePICK);
             Controls.Add(endViewBTN);
@@ -219,5 +247,7 @@
         private Button deleteBTN;
         private DateTimePicker datePICK;
         private Button updateBTN;
+        private Button studentsBTN;
+        private Button questionsBTN;
     }
 }

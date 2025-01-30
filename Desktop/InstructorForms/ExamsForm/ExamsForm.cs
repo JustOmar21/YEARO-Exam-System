@@ -26,6 +26,7 @@ namespace Desktop.InstructorForms.Exams
             Utilites.InitForm(this, $"Exams of '{course.Name}'");
             datePICK.Format = DateTimePickerFormat.Custom;
             datePICK.CustomFormat = "dd-MM-yyyy hh:mm tt";
+            datePICK.Value = DateTime.Now.Date.AddDays( 1 ).AddHours(9);
             FillTable();
         }
 
@@ -37,7 +38,7 @@ namespace Desktop.InstructorForms.Exams
         private void FillTable()
         {
             var exams = context.Exams
-                //.Where(qt => qt.CrsID == course.ID)
+                .Where(qt => qt.CrsID == course.ID)
                 .ToList();
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
@@ -65,6 +66,7 @@ namespace Desktop.InstructorForms.Exams
                 nameTXT.Text = $"{dataGrid.Rows[e.RowIndex].Cells[1].Value}";
                 datePICK.Value = DateTime.Parse($"{dataGrid.Rows[e.RowIndex].Cells[2].Value} {dataGrid.Rows[e.RowIndex].Cells[3].Value}");
 
+                questionsBTN.Visible = studentsBTN.Visible =
                 nameTXT.ReadOnly = updateBTN.Visible =
                 deleteBTN.Visible = endViewBTN.Visible = true;
                 insertBTN.Visible = false;
@@ -73,6 +75,7 @@ namespace Desktop.InstructorForms.Exams
 
         private void endViewBTN_Click(object sender, EventArgs e)
         {
+            questionsBTN.Visible = studentsBTN.Visible =
             nameTXT.ReadOnly = updateBTN.Visible =
             deleteBTN.Visible = endViewBTN.Visible = false;
             insertBTN.Visible = true;
@@ -205,7 +208,7 @@ namespace Desktop.InstructorForms.Exams
                 endViewBTN_Click(sender, e);
                 refreshBTN_Click(sender, e);
             }
-            
+
         }
 
         private void deleteBTN_Click(object sender, EventArgs e)
@@ -223,6 +226,40 @@ namespace Desktop.InstructorForms.Exams
             }
             endViewBTN_Click(sender, e);
             refreshBTN_Click(sender, e);
+        }
+
+        private void questionsBTN_Click(object sender, EventArgs e)
+        {
+            var exam = context.Exams.Find(Convert.ToInt32(idTXT.Text));
+            if (exam != null)
+            {
+                ExamQuestionsForm form = new ExamQuestionsForm(this, exam);
+                form.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("The exam may have been already deleted", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                endViewBTN_Click(sender, e);
+                refreshBTN_Click(sender, e);
+            }
+        }
+
+        private void studentsBTN_Click(object sender, EventArgs e)
+        {
+            var exam = context.Exams.Find(Convert.ToInt32(idTXT.Text));
+            if (exam != null)
+            {
+                ExamStudentsForm form = new ExamStudentsForm(this, exam);
+                form.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("The exam may have been already deleted", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                endViewBTN_Click(sender, e);
+                refreshBTN_Click(sender, e);
+            }
         }
     }
 }
