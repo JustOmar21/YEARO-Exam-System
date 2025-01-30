@@ -94,7 +94,7 @@ public partial class ExamContext : DbContext
 
             entity.HasOne(d => d.Exam).WithMany(p => p.Answers)
                 .HasForeignKey(d => d.ExamID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Answer_Ex__ExamI__6B24EA82");
 
             entity.HasOne(d => d.Question).WithMany(p => p.Answer_Exams)
@@ -104,7 +104,7 @@ public partial class ExamContext : DbContext
 
             entity.HasOne(d => d.Student).WithMany(p => p.Answer_Exams)
                 .HasForeignKey(d => d.StdID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Answer_Ex__StdID__6D0D32F4");
         });
 
@@ -119,7 +119,7 @@ public partial class ExamContext : DbContext
 
             entity.HasOne(d => d.Question).WithMany(p => p.Choices)
                 .HasForeignKey(d => d.QID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Choice__QID__6754599E");
         });
 
@@ -153,7 +153,7 @@ public partial class ExamContext : DbContext
 
             entity.HasOne(d => d.Course).WithMany(p => p.Exams)
                 .HasForeignKey(d => d.CrsID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Exam__CrsID__5AEE82B9");
         });
 
@@ -247,12 +247,12 @@ public partial class ExamContext : DbContext
 
             entity.HasOne(d => d.Exam).WithMany(p => p.Students)
                 .HasForeignKey(d => d.ExamID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Student_E__ExamI__5EBF139D");
 
             entity.HasOne(d => d.Student).WithMany(p => p.Exams)
                 .HasForeignKey(d => d.StdID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Student_E__StdID__5DCAEF64");
         });
 
@@ -266,7 +266,7 @@ public partial class ExamContext : DbContext
 
             entity.HasOne(d => d.Course).WithMany(p => p.Topics)
                 .HasForeignKey(d => d.CrsID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Topic__CrsID__5070F446");
         });
 
