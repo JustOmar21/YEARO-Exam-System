@@ -105,7 +105,7 @@ namespace Desktop
             }
             else
             {
-                QuestionForm form = new QuestionForm(this, course);
+                QuestionsForm form = new QuestionsForm(this, course);
                 form.Show();
                 Hide();
             }

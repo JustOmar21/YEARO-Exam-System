@@ -1,6 +1,6 @@
 ﻿namespace Desktop.InstructorForms
 {
-    partial class QuestionForm
+    partial class QuestionsForm
     {
         /// <summary>
         /// Required designer variable.

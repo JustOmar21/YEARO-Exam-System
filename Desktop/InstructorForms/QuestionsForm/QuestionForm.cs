@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace Desktop.InstructorForms
 {
-    public partial class QuestionForm : Form
+    public partial class QuestionsForm : Form
     {
         Form super;
         Course course;
         ExamContext context = new();
-        public QuestionForm(Form super, Course course)
+        public QuestionsForm(Form super, Course course)
         {
             InitializeComponent();
             this.super = super;
@@ -70,6 +70,7 @@ namespace Desktop.InstructorForms
                 {
                     questionDATA.Rows[i].Cells[questions[i].CorrectChoice + 3].Style.BackColor = Color.Green;
                     questionDATA.Rows[i].Cells[questions[i].CorrectChoice + 3].Style.ForeColor = Color.White;
+                    questionDATA.Rows[i].Cells[questions[i].CorrectChoice + 3].Style.SelectionBackColor = Color.GreenYellow;
                 }
             };
 
