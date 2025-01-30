@@ -21,4 +21,16 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="InstructorForms\ExamsForm\ExamQuestionsForm\ExamQuestionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InstructorForms\ExamsForm\ExamStudentsForm\ExamStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InstructorForms\ExamsForm\ExamStudentsForm\StudentAnswersForm\StudentAnswersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
