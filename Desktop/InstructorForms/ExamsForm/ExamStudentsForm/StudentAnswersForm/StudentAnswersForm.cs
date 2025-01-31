@@ -79,6 +79,11 @@ namespace Desktop.InstructorForms.Exams
                         questionDATA.Rows[i].Cells[(int)answers[i].Answer + 3].Style.ForeColor = Color.White;
                         questionDATA.Rows[i].Cells[(int)answers[i].Answer + 3].Style.SelectionBackColor = Color.OrangeRed;
                     }
+                    else
+                    {
+                        questionDATA.Rows[i].DefaultCellStyle.BackColor = Color.Black;
+                        questionDATA.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    }
 
                     questionDATA.Rows[i].Cells[answers[i].Question.CorrectChoice + 3].Style.BackColor = Color.Green;
                     questionDATA.Rows[i].Cells[answers[i].Question.CorrectChoice + 3].Style.ForeColor = Color.White;
