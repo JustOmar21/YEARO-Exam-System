@@ -55,10 +55,11 @@ namespace Desktop.InstructorForms.Students
                 var examTaken = context.Student_Exams.Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID && se.Exam.EndDate < DateTime.Now).Count();
 
                 // Get maximum possible grade for this course
-                float maxPossible = context.Student_Exams
-                    .Where(se => se.StdID == student.StdID && se.Exam.Course.ID == course.ID && se.Exam.EndDate < DateTime.Now)
-                    .SelectMany(se => se.Exam.Answers.Select(a => a.Question.Degree))
-                    .Sum();
+                float maxPossible = context.Answer_Exams
+                                .Where(ae => ae.Exam.Course.ID == course.ID && ae.Exam.EndDate < DateTime.Now && ae.StdID == student.StdID)
+                                .Select(ae => ae.Question)
+                                .ToList()
+                                .Sum(qt => qt.Degree);
                 var percentage = maxPossible > 0
                                 ? $"{((totalObtained / maxPossible)):P}"
                                 : "No Exams Yet";
