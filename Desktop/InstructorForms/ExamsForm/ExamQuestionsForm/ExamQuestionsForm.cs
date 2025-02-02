@@ -25,6 +25,19 @@ namespace Desktop.InstructorForms.Exams
             this.exam = exam;
             Utilites.InitForm(this, $"Questions of '{exam.Name}'");
             typeBOX.SelectedIndex = 0;
+
+            questionDATA.DataBindingComplete += (sender, e) =>
+            {
+                for (int i = 0; i < questionDATA.Rows.Count; i++)
+                {
+                    questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Correct Choice"].Value) + 3].Style.BackColor = Color.Green;
+                    questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Correct Choice"].Value) + 3].Style.ForeColor = Color.White;
+                    questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Correct Choice"].Value) + 3].Style.SelectionBackColor = Color.GreenYellow;
+
+                }
+            };
+
+
             FillTable();
         }
 
@@ -64,17 +77,6 @@ namespace Desktop.InstructorForms.Exams
             questionDATA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             questionDATA.AllowUserToAddRows = false;
             questionDATA.Columns[^1].Visible = false;
-
-            questionDATA.DataBindingComplete += (sender, e) =>
-            {
-                for (int i = 0; i < questions.Count; i++)
-                {
-                    questionDATA.Rows[i].Cells[questions[i].CorrectChoice + 3].Style.BackColor = Color.Green;
-                    questionDATA.Rows[i].Cells[questions[i].CorrectChoice + 3].Style.ForeColor = Color.White;
-                    questionDATA.Rows[i].Cells[questions[i].CorrectChoice + 3].Style.SelectionBackColor = Color.GreenYellow;
-
-                }
-            };
 
         }
 

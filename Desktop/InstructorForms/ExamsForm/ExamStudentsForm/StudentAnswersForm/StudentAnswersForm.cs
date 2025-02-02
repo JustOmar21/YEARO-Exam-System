@@ -27,6 +27,30 @@ namespace Desktop.InstructorForms.Exams
             this.student = student;
             Utilites.InitForm(this, $"Answers of '{student.Person.Name}' For Exam '{exam.Name}'");
             typeBOX.SelectedIndex = 0;
+
+            questionDATA.DataBindingComplete += (sender, e) =>
+            {
+                for (int i = 0; i < questionDATA.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(questionDATA.Rows[i].Cells["Student Choice"].Value) != 0)
+                    {
+                        questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Student Choice"].Value) + 3].Style.BackColor = Color.Red;
+                        questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Student Choice"].Value) + 3].Style.ForeColor = Color.White;
+                        questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Student Choice"].Value) + 3].Style.SelectionBackColor = Color.OrangeRed;
+                    }
+                    else
+                    {
+                        questionDATA.Rows[i].DefaultCellStyle.BackColor = Color.Black;
+                        questionDATA.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    }
+
+                    questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Correct Choice"].Value) + 3].Style.BackColor = Color.Green;
+                    questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Correct Choice"].Value) + 3].Style.ForeColor = Color.White;
+                    questionDATA.Rows[i].Cells[Convert.ToInt32(questionDATA.Rows[i].Cells["Correct Choice"].Value) + 3].Style.SelectionBackColor = Color.GreenYellow;
+                }
+            };
+
+
             FillTable();
         }
 
@@ -69,27 +93,7 @@ namespace Desktop.InstructorForms.Exams
             questionDATA.AllowUserToAddRows = false;
             questionDATA.Columns[^1].Visible = questionDATA.Columns[^2].Visible  = false;
 
-            questionDATA.DataBindingComplete += (sender, e) =>
-            {
-                for (int i = 0; i < answers.Count; i++)
-                {
-                    if (answers[i].Answer != null && answers[i].Answer != 0)
-                    {
-                        questionDATA.Rows[i].Cells[(int)answers[i].Answer + 3].Style.BackColor = Color.Red;
-                        questionDATA.Rows[i].Cells[(int)answers[i].Answer + 3].Style.ForeColor = Color.White;
-                        questionDATA.Rows[i].Cells[(int)answers[i].Answer + 3].Style.SelectionBackColor = Color.OrangeRed;
-                    }
-                    else
-                    {
-                        questionDATA.Rows[i].DefaultCellStyle.BackColor = Color.Black;
-                        questionDATA.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                    }
-
-                    questionDATA.Rows[i].Cells[answers[i].Question.CorrectChoice + 3].Style.BackColor = Color.Green;
-                    questionDATA.Rows[i].Cells[answers[i].Question.CorrectChoice + 3].Style.ForeColor = Color.White;
-                    questionDATA.Rows[i].Cells[answers[i].Question.CorrectChoice + 3].Style.SelectionBackColor = Color.GreenYellow;
-                }
-            };
+            
 
         }
 
