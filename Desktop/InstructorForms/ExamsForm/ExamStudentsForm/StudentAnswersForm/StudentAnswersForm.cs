@@ -147,6 +147,7 @@ namespace Desktop.InstructorForms.Exams
             var box = sender as ComboBox;
             if (box.SelectedItem.ToString() == "T/F")
             {
+                panel6.Visible = panel7.Visible =
                 choice3LBL.Visible = choice4LBL.Visible =
                 choice3TXT.Visible = choice4TXT.Visible =
                 correctChoice3.Visible = correctChoice4.Visible = false;
@@ -166,6 +167,7 @@ namespace Desktop.InstructorForms.Exams
             }
             else if (box.SelectedItem.ToString() == "MCQ")
             {
+                panel6.Visible = panel7.Visible =
                 choice3LBL.Visible = choice4LBL.Visible =
                 choice3TXT.Visible = choice4TXT.Visible =
                 correctChoice3.Visible = correctChoice4.Visible = true;
@@ -196,10 +198,44 @@ namespace Desktop.InstructorForms.Exams
                 correctChoice1.Enabled = correctChoice2.Enabled =
                 correctChoice3.Enabled = correctChoice4.Enabled = true;
 
-                if ((string)dataGrid.Rows[e.RowIndex].Cells[10].Value == "1") correctChoice1.PerformClick();
-                else if ((string)dataGrid.Rows[e.RowIndex].Cells[10].Value == "2") correctChoice2.PerformClick();
-                else if ((string)dataGrid.Rows[e.RowIndex].Cells[10].Value == "3") correctChoice3.PerformClick();
-                else if ((string)dataGrid.Rows[e.RowIndex].Cells[10].Value == "4") correctChoice4.PerformClick();
+                if ((string)dataGrid.Rows[e.RowIndex].Cells["Student Choice"].Value == "1")
+                {
+                    correctChoice1.BackColor = Color.Red;
+                    correctChoice2.BackColor = correctChoice3.BackColor = correctChoice4.BackColor = Color.White;
+                }
+                else if ((string)dataGrid.Rows[e.RowIndex].Cells["Student Choice"].Value == "2")
+                {
+                    correctChoice2.BackColor = Color.Red;
+                    correctChoice1.BackColor = correctChoice3.BackColor = correctChoice4.BackColor = Color.White;
+                }
+                else if ((string)dataGrid.Rows[e.RowIndex].Cells["Student Choice"].Value == "3")
+                {
+                    correctChoice3.BackColor = Color.Red;
+                    correctChoice2.BackColor = correctChoice1.BackColor = correctChoice4.BackColor = Color.White;
+                }
+                else if ((string)dataGrid.Rows[e.RowIndex].Cells["Student Choice"].Value == "4")
+                {
+                    correctChoice4.BackColor = Color.Red;
+                    correctChoice2.BackColor = correctChoice3.BackColor = correctChoice1.BackColor = Color.White;
+                }
+
+
+                if ((string)dataGrid.Rows[e.RowIndex].Cells[9].Value == "1")
+                {
+                    correctChoice1.BackColor = Color.Green;
+                }
+                else if ((string)dataGrid.Rows[e.RowIndex].Cells[9].Value == "2")
+                {
+                    correctChoice2.BackColor = Color.Green;
+                }
+                else if ((string)dataGrid.Rows[e.RowIndex].Cells[9].Value == "3")
+                {
+                    correctChoice3.BackColor = Color.Green;
+                }
+                else if ((string)dataGrid.Rows[e.RowIndex].Cells[9].Value == "4")
+                {
+                    correctChoice4.BackColor = Color.Green;
+                }
 
                 bodyTXT.ReadOnly = degreeNUM.ReadOnly =
                 choice1TXT.ReadOnly = choice2TXT.ReadOnly =

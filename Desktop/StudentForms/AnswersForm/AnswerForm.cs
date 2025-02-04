@@ -71,6 +71,14 @@ namespace Desktop.StudentForms.AnswersForm
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            if (sender is Panel panel)
+            {
+                ControlPaint.DrawBorder(e.Graphics, panel.ClientRectangle, Color.FromArgb(194, 39, 45), ButtonBorderStyle.Dashed);
+            }
+        }
+
         private void ShowQuestion()
         {
             questionLBL.Text = $"Question {number + 1}";
@@ -83,12 +91,14 @@ namespace Desktop.StudentForms.AnswersForm
                 choice2TXT.Text = choices[1].Body;
                 choice3TXT.Text = choices[2].Body;
                 choice4TXT.Text = choices[3].Body;
+                panel3.Visible = panel4.Visible =
                 choice3TXT.Visible = choice4TXT.Visible = true;
             }
             else if (question.Type == "T/F")
             {
                 choice1TXT.Text = choices[0].Body;
                 choice2TXT.Text = choices[1].Body;
+                panel3.Visible = panel4.Visible =
                 choice3TXT.Visible = choice4TXT.Visible = false;
             }
             if (questions[number].Answer == 1) { choice1TXT_MouseDown(new object(), new MouseEventArgs(MouseButtons.None, 1, 1, 1, 1)); }
@@ -119,7 +129,7 @@ namespace Desktop.StudentForms.AnswersForm
             context.SaveChanges();
 
             questionLBL.Focus();
-            choice1TXT.BackColor = SystemColors.ActiveCaption;
+            choice1TXT.BackColor = Color.FromArgb(218, 217, 218);
 
             choice2TXT.BackColor = choice3TXT.BackColor = choice4TXT.BackColor = Color.White;
         }
@@ -138,7 +148,7 @@ namespace Desktop.StudentForms.AnswersForm
             context.SaveChanges();
 
             questionLBL.Focus();
-            choice2TXT.BackColor = SystemColors.ActiveCaption;
+            choice2TXT.BackColor = Color.FromArgb(218, 217, 218);
 
             choice1TXT.BackColor = choice3TXT.BackColor = choice4TXT.BackColor = Color.White;
         }
@@ -157,7 +167,7 @@ namespace Desktop.StudentForms.AnswersForm
             context.SaveChanges();
 
             questionLBL.Focus();
-            choice3TXT.BackColor = SystemColors.ActiveCaption;
+            choice3TXT.BackColor = Color.FromArgb(218, 217, 218);
 
             choice2TXT.BackColor = choice1TXT.BackColor = choice4TXT.BackColor = Color.White;
         }
@@ -176,7 +186,7 @@ namespace Desktop.StudentForms.AnswersForm
             context.SaveChanges();
 
             questionLBL.Focus();
-            choice4TXT.BackColor = SystemColors.ActiveCaption;
+            choice4TXT.BackColor = Color.FromArgb(218, 217, 218);
 
             choice2TXT.BackColor = choice3TXT.BackColor = choice1TXT.BackColor = Color.White;
         }

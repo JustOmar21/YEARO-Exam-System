@@ -25,10 +25,6 @@ namespace Desktop.Admin.StudentDepartmentForm
             deptLIST.DisplayMember = "Name";
             deptLIST.ValueMember = "ID";
             deptLIST.DataSource = context.Departments.ToList();
-            nameTXT.BackColor = emailTXT.BackColor =
-            addressTXT.BackColor = dobTXT.BackColor =
-            phoneTXT.BackColor = salaryTXT.BackColor =
-            collegeTXT.BackColor = UIConfig.SecondaryColorDark;
         }
 
         private void CourseTopicForm_FormClosed(object sender, FormClosedEventArgs e)

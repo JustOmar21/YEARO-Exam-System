@@ -25,7 +25,6 @@ namespace Desktop.Admin.InstructorCourseForm
             insLIST.DisplayMember = "Name";
             insLIST.ValueMember = "ID";
             insLIST.DataSource = context.Instructors.Select(ins => ins.Person).ToList();
-            idTXT.BackColor = nameTXT.BackColor = UIConfig.SecondaryColorDark;
         }
 
         private void CourseTopicForm_FormClosed(object sender, FormClosedEventArgs e)

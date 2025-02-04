@@ -27,10 +27,6 @@ namespace Desktop
             this.super = super;
             Utilites.InitForm(this, $"My Courses : {Utilites.Person.Name}");
             searchTXT.PlaceholderText = "Search By Name";
-
-            idTXT.BackColor = UIConfig.SecondaryColorDark;
-            nameTXT.BackColor = UIConfig.SecondaryColorDark;
-            idTXT.ForeColor = nameTXT.ForeColor = Color.Black;
             FillTable();
         }
 

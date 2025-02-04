@@ -16,6 +16,11 @@ namespace Desktop.Admin.CourseTopicForm
     {
         Form super;
         ExamContext context = new();
+        private Color[] buttonColors = new Color[]
+        {
+            Color.FromArgb(194, 39, 45),   // returnBTN
+            Color.FromArgb(76, 175, 80)     // showBTN
+        };
         public CourseTopicForm(Form super)
         {
             InitializeComponent();
@@ -24,7 +29,43 @@ namespace Desktop.Admin.CourseTopicForm
             courseLIST.DisplayMember = "Name";
             courseLIST.ValueMember = "ID";
             courseLIST.DataSource = context.Courses.ToList();
-            idTXT.BackColor = nameTXT.BackColor = UIConfig.SecondaryColorDark;
+
+            SetControlStyles(new Control[] { returnBTN, showBTN });
+            ConfigureHoverEffects();
+        }
+        private void SetControlStyles(Control[] controls)
+        {
+            foreach (var ctrl in controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.FlatAppearance.BorderColor = Color.FromArgb(225, 225, 225);
+                    btn.Tag = btn.BackColor;
+                }
+                else if (ctrl is ComboBox combo)
+                {
+                    combo.FlatStyle = FlatStyle.Flat;
+                }
+            }
+        }
+
+        private void ConfigureHoverEffects()
+        {
+            var buttons = new[] { returnBTN, showBTN };
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].BackColor = buttonColors[i];
+                buttons[i].MouseEnter += (s, e) =>
+                {
+                    var btn = (Button)s;
+                    btn.BackColor = ControlPaint.Dark(buttonColors[Array.IndexOf(buttons, btn)], 0.1f);
+                };
+                buttons[i].MouseLeave += (s, e) =>
+                {
+                    var btn = (Button)s;
+                    btn.BackColor = buttonColors[Array.IndexOf(buttons, btn)];
+                };
+            }
         }
 
         private void CourseTopicForm_FormClosed(object sender, FormClosedEventArgs e)

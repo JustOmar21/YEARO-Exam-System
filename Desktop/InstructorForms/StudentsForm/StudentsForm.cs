@@ -69,7 +69,7 @@ namespace Desktop.InstructorForms.Students
             studentDATA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             studentDATA.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             studentDATA.AllowUserToAddRows = false;
-            
+
         }
 
         private void returnBTN_Click(object sender, EventArgs e)
@@ -78,6 +78,11 @@ namespace Desktop.InstructorForms.Students
         }
 
         private void searchTXT_TextChanged(object sender, EventArgs e)
+        {
+            FillTable();
+        }
+
+        private void refreshBTN_Click(object sender, EventArgs e)
         {
             FillTable();
         }

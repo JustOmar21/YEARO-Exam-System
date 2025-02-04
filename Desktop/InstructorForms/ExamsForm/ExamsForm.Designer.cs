@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             idTXT = new TextBox();
             dateLBL = new Label();
             nameLBL = new Label();
             nameTXT = new RichTextBox();
             returnBTN = new Button();
             refreshBTN = new Button();
-            examDATA = new DataGridView();
             insertBTN = new Button();
             endViewBTN = new Button();
             deleteBTN = new Button();
@@ -43,13 +44,16 @@
             updateBTN = new Button();
             studentsBTN = new Button();
             questionsBTN = new Button();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            examDATA = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)examDATA).BeginInit();
             SuspendLayout();
             // 
             // idTXT
             // 
             idTXT.Enabled = false;
-            idTXT.Location = new Point(717, 212);
+            idTXT.Location = new Point(605, 12);
             idTXT.Name = "idTXT";
             idTXT.Size = new Size(125, 27);
             idTXT.TabIndex = 70;
@@ -58,77 +62,76 @@
             // dateLBL
             // 
             dateLBL.AutoSize = true;
-            dateLBL.Font = new Font("Segoe UI", 20F);
-            dateLBL.Location = new Point(1328, 478);
+            dateLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            dateLBL.ForeColor = Color.FromArgb(64, 64, 64);
+            dateLBL.Location = new Point(1328, 347);
             dateLBL.Name = "dateLBL";
-            dateLBL.Size = new Size(238, 46);
+            dateLBL.Size = new Size(174, 32);
             dateLBL.TabIndex = 61;
             dateLBL.Text = "Date and Time";
             // 
             // nameLBL
             // 
             nameLBL.AutoSize = true;
-            nameLBL.Font = new Font("Segoe UI", 20F);
+            nameLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            nameLBL.ForeColor = Color.FromArgb(64, 64, 64);
             nameLBL.Location = new Point(1328, 195);
             nameLBL.Name = "nameLBL";
-            nameLBL.Size = new Size(109, 46);
+            nameLBL.Size = new Size(79, 32);
             nameLBL.TabIndex = 59;
             nameLBL.Text = "Name";
             // 
             // nameTXT
             // 
-            nameTXT.Font = new Font("Segoe UI", 15F);
-            nameTXT.Location = new Point(1328, 289);
+            nameTXT.BackColor = Color.White;
+            nameTXT.BorderStyle = BorderStyle.None;
+            nameTXT.Font = new Font("Segoe UI", 12F);
+            nameTXT.Location = new Point(1328, 230);
             nameTXT.Name = "nameTXT";
-            nameTXT.Size = new Size(562, 69);
+            nameTXT.Size = new Size(562, 39);
             nameTXT.TabIndex = 58;
             nameTXT.Text = "";
             // 
             // returnBTN
             // 
-            returnBTN.Font = new Font("Segoe UI", 20F);
-            returnBTN.ForeColor = SystemColors.ControlText;
-            returnBTN.Location = new Point(667, 12);
+            returnBTN.BackColor = Color.FromArgb(194, 39, 45);
+            returnBTN.Cursor = Cursors.Hand;
+            returnBTN.FlatAppearance.BorderSize = 0;
+            returnBTN.FlatStyle = FlatStyle.Flat;
+            returnBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            returnBTN.ForeColor = Color.White;
+            returnBTN.Location = new Point(12, 12);
             returnBTN.Name = "returnBTN";
             returnBTN.Size = new Size(655, 62);
-            returnBTN.TabIndex = 51;
-            returnBTN.Text = "Return";
+            returnBTN.TabIndex = 21;
+            returnBTN.Text = "↩ Return";
             returnBTN.UseVisualStyleBackColor = true;
             returnBTN.Click += returnBTN_Click;
             // 
             // refreshBTN
             // 
-            refreshBTN.Font = new Font("Segoe UI", 20F);
-            refreshBTN.Location = new Point(12, 12);
+            refreshBTN.BackColor = Color.FromArgb(76, 175, 80);
+            refreshBTN.Cursor = Cursors.Hand;
+            refreshBTN.FlatAppearance.BorderSize = 0;
+            refreshBTN.FlatStyle = FlatStyle.Flat;
+            refreshBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            refreshBTN.ForeColor = Color.White;
+            refreshBTN.Location = new Point(667, 12);
             refreshBTN.Name = "refreshBTN";
             refreshBTN.Size = new Size(655, 62);
-            refreshBTN.TabIndex = 50;
-            refreshBTN.Text = "Refresh";
+            refreshBTN.TabIndex = 10;
+            refreshBTN.Text = "♻ Refresh";
             refreshBTN.UseVisualStyleBackColor = true;
             refreshBTN.Click += refreshBTN_Click;
             // 
-            // examDATA
-            // 
-            examDATA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 16F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            examDATA.DefaultCellStyle = dataGridViewCellStyle1;
-            examDATA.Location = new Point(12, 80);
-            examDATA.Name = "examDATA";
-            examDATA.ReadOnly = true;
-            examDATA.RowHeadersWidth = 51;
-            examDATA.Size = new Size(1310, 948);
-            examDATA.TabIndex = 49;
-            examDATA.CellDoubleClick += examDATA_CellDoubleClick;
-            // 
             // insertBTN
             // 
-            insertBTN.Font = new Font("Segoe UI", 25F);
+            insertBTN.BackColor = Color.FromArgb(76, 175, 80);
+            insertBTN.Cursor = Cursors.Hand;
+            insertBTN.FlatAppearance.BorderSize = 0;
+            insertBTN.FlatStyle = FlatStyle.Flat;
+            insertBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            insertBTN.ForeColor = Color.White;
             insertBTN.Location = new Point(1328, 952);
             insertBTN.Name = "insertBTN";
             insertBTN.Size = new Size(562, 76);
@@ -139,7 +142,12 @@
             // 
             // endViewBTN
             // 
-            endViewBTN.Font = new Font("Segoe UI", 25F);
+            endViewBTN.BackColor = Color.FromArgb(33, 43, 224);
+            endViewBTN.Cursor = Cursors.Hand;
+            endViewBTN.FlatAppearance.BorderSize = 0;
+            endViewBTN.FlatStyle = FlatStyle.Flat;
+            endViewBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            endViewBTN.ForeColor = Color.White;
             endViewBTN.Location = new Point(1328, 952);
             endViewBTN.Name = "endViewBTN";
             endViewBTN.Size = new Size(562, 76);
@@ -151,7 +159,12 @@
             // 
             // deleteBTN
             // 
-            deleteBTN.Font = new Font("Segoe UI", 25F);
+            deleteBTN.BackColor = Color.FromArgb(194, 39, 45);
+            deleteBTN.Cursor = Cursors.Hand;
+            deleteBTN.FlatAppearance.BorderSize = 0;
+            deleteBTN.FlatStyle = FlatStyle.Flat;
+            deleteBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deleteBTN.ForeColor = Color.White;
             deleteBTN.Location = new Point(1609, 870);
             deleteBTN.Name = "deleteBTN";
             deleteBTN.Size = new Size(281, 76);
@@ -163,16 +176,22 @@
             // 
             // datePICK
             // 
-            datePICK.Font = new Font("Segoe UI", 15F);
+            datePICK.BackColor = Color.White;
+            datePICK.Font = new Font("Segoe UI", 12F);
             datePICK.Format = DateTimePickerFormat.Custom;
-            datePICK.Location = new Point(1328, 571);
+            datePICK.Location = new Point(1328, 382);
             datePICK.Name = "datePICK";
-            datePICK.Size = new Size(562, 41);
+            datePICK.Size = new Size(562, 34);
             datePICK.TabIndex = 74;
             // 
             // updateBTN
             // 
-            updateBTN.Font = new Font("Segoe UI", 25F);
+            updateBTN.BackColor = Color.FromArgb(76, 175, 80);
+            updateBTN.Cursor = Cursors.Hand;
+            updateBTN.FlatAppearance.BorderSize = 0;
+            updateBTN.FlatStyle = FlatStyle.Flat;
+            updateBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            updateBTN.ForeColor = Color.White;
             updateBTN.Location = new Point(1328, 870);
             updateBTN.Name = "updateBTN";
             updateBTN.Size = new Size(281, 76);
@@ -184,7 +203,12 @@
             // 
             // studentsBTN
             // 
-            studentsBTN.Font = new Font("Segoe UI", 25F);
+            studentsBTN.BackColor = Color.FromArgb(33, 43, 224);
+            studentsBTN.Cursor = Cursors.Hand;
+            studentsBTN.FlatAppearance.BorderSize = 0;
+            studentsBTN.FlatStyle = FlatStyle.Flat;
+            studentsBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            studentsBTN.ForeColor = Color.White;
             studentsBTN.Location = new Point(1328, 706);
             studentsBTN.Name = "studentsBTN";
             studentsBTN.Size = new Size(562, 76);
@@ -196,7 +220,12 @@
             // 
             // questionsBTN
             // 
-            questionsBTN.Font = new Font("Segoe UI", 25F);
+            questionsBTN.BackColor = Color.FromArgb(33, 43, 224);
+            questionsBTN.Cursor = Cursors.Hand;
+            questionsBTN.FlatAppearance.BorderSize = 0;
+            questionsBTN.FlatStyle = FlatStyle.Flat;
+            questionsBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            questionsBTN.ForeColor = Color.White;
             questionsBTN.Location = new Point(1328, 788);
             questionsBTN.Name = "questionsBTN";
             questionsBTN.Size = new Size(562, 76);
@@ -206,11 +235,68 @@
             questionsBTN.Visible = false;
             questionsBTN.Click += questionsBTN_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(194, 39, 45);
+            panel1.Location = new Point(1328, 275);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(562, 2);
+            panel1.TabIndex = 78;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(194, 39, 45);
+            panel2.Location = new Point(1328, 422);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(562, 2);
+            panel2.TabIndex = 78;
+            // 
+            // examDATA
+            // 
+            examDATA.BackgroundColor = Color.White;
+            examDATA.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            examDATA.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            examDATA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(28, 163, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            examDATA.DefaultCellStyle = dataGridViewCellStyle2;
+            examDATA.GridColor = Color.FromArgb(240, 240, 240);
+            examDATA.Location = new Point(12, 80);
+            examDATA.Name = "examDATA";
+            examDATA.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            examDATA.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            examDATA.RowHeadersWidth = 51;
+            examDATA.Size = new Size(1310, 941);
+            examDATA.TabIndex = 80;
+            examDATA.CellDoubleClick += examDATA_CellDoubleClick;
+            // 
             // ExamsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(examDATA);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(studentsBTN);
             Controls.Add(questionsBTN);
             Controls.Add(updateBTN);
@@ -224,7 +310,6 @@
             Controls.Add(nameTXT);
             Controls.Add(returnBTN);
             Controls.Add(refreshBTN);
-            Controls.Add(examDATA);
             Name = "ExamsForm";
             Text = "Exams";
             FormClosed += ExamsForm_FormClosed;
@@ -241,7 +326,6 @@
         private RichTextBox nameTXT;
         private Button returnBTN;
         private Button refreshBTN;
-        private DataGridView examDATA;
         private Button insertBTN;
         private Button endViewBTN;
         private Button deleteBTN;
@@ -249,5 +333,8 @@
         private Button updateBTN;
         private Button studentsBTN;
         private Button questionsBTN;
+        private Panel panel1;
+        private Panel panel2;
+        private DataGridView examDATA;
     }
 }

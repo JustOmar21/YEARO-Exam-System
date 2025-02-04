@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             returnBTN = new Button();
-            topicDATA = new DataGridView();
             deptLBL = new Label();
             deptLIST = new ComboBox();
             showBTN = new Button();
@@ -48,66 +49,67 @@
             phoneLBL = new Label();
             collegeTXT = new RichTextBox();
             collegeLBL = new Label();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            panel6 = new Panel();
+            panel7 = new Panel();
+            panel8 = new Panel();
+            topicDATA = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)topicDATA).BeginInit();
             SuspendLayout();
             // 
             // returnBTN
             // 
-            returnBTN.Font = new Font("Segoe UI", 25F);
-            returnBTN.ForeColor = SystemColors.ControlText;
+            returnBTN.BackColor = Color.FromArgb(194, 39, 45);
+            returnBTN.Cursor = Cursors.Hand;
+            returnBTN.FlatAppearance.BorderSize = 0;
+            returnBTN.FlatStyle = FlatStyle.Flat;
+            returnBTN.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            returnBTN.ForeColor = Color.White;
             returnBTN.Location = new Point(12, 12);
             returnBTN.Name = "returnBTN";
             returnBTN.Size = new Size(1156, 76);
-            returnBTN.TabIndex = 15;
-            returnBTN.Text = "Return";
+            returnBTN.TabIndex = 25;
+            returnBTN.Text = "↩ Return";
             returnBTN.UseVisualStyleBackColor = true;
             returnBTN.Click += returnBTN_Click;
-            // 
-            // topicDATA
-            // 
-            topicDATA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            topicDATA.DefaultCellStyle = dataGridViewCellStyle1;
-            topicDATA.Location = new Point(12, 94);
-            topicDATA.Name = "topicDATA";
-            topicDATA.ReadOnly = true;
-            topicDATA.RowHeadersWidth = 51;
-            topicDATA.Size = new Size(1156, 927);
-            topicDATA.TabIndex = 12;
-            topicDATA.CellDoubleClick += topicDATA_CellDoubleClick;
             // 
             // deptLBL
             // 
             deptLBL.AutoSize = true;
-            deptLBL.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            deptLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            deptLBL.ForeColor = Color.FromArgb(64, 64, 64);
             deptLBL.Location = new Point(1174, 9);
             deptLBL.Name = "deptLBL";
-            deptLBL.Size = new Size(264, 57);
+            deptLBL.Size = new Size(147, 32);
             deptLBL.TabIndex = 16;
             deptLBL.Text = "Department";
             // 
             // deptLIST
             // 
             deptLIST.DropDownStyle = ComboBoxStyle.DropDownList;
-            deptLIST.Font = new Font("Segoe UI", 25F);
+            deptLIST.FlatStyle = FlatStyle.Flat;
+            deptLIST.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deptLIST.FormattingEnabled = true;
             deptLIST.Location = new Point(1174, 69);
             deptLIST.Name = "deptLIST";
-            deptLIST.Size = new Size(716, 65);
+            deptLIST.Size = new Size(716, 39);
             deptLIST.TabIndex = 17;
             // 
             // showBTN
             // 
-            showBTN.Font = new Font("Segoe UI", 25F);
-            showBTN.Location = new Point(1174, 896);
+            showBTN.BackColor = Color.FromArgb(255, 152, 0);
+            showBTN.Cursor = Cursors.Hand;
+            showBTN.FlatAppearance.BorderSize = 0;
+            showBTN.FlatStyle = FlatStyle.Flat;
+            showBTN.Font = new Font("Segoe UI Semibold", 14.2F, FontStyle.Bold);
+            showBTN.ForeColor = Color.White;
+            showBTN.Location = new Point(1174, 911);
             showBTN.Name = "showBTN";
-            showBTN.Size = new Size(716, 125);
+            showBTN.Size = new Size(716, 110);
             showBTN.TabIndex = 18;
             showBTN.Text = "Get Students";
             showBTN.UseVisualStyleBackColor = true;
@@ -115,26 +117,26 @@
             // 
             // emailTXT
             // 
-            emailTXT.BackColor = SystemColors.Control;
+            emailTXT.BackColor = Color.White;
             emailTXT.BorderStyle = BorderStyle.None;
-            emailTXT.Font = new Font("Segoe UI", 20F);
-            emailTXT.Location = new Point(1221, 292);
+            emailTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailTXT.Location = new Point(1174, 278);
             emailTXT.Name = "emailTXT";
             emailTXT.ReadOnly = true;
-            emailTXT.Size = new Size(669, 54);
+            emailTXT.Size = new Size(716, 54);
             emailTXT.TabIndex = 22;
             emailTXT.Text = "";
             emailTXT.MouseDown += idTXT_MouseDown;
             // 
             // nameTXT
             // 
-            nameTXT.BackColor = SystemColors.Control;
+            nameTXT.BackColor = Color.White;
             nameTXT.BorderStyle = BorderStyle.None;
-            nameTXT.Font = new Font("Segoe UI", 20F);
-            nameTXT.Location = new Point(1221, 186);
+            nameTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameTXT.Location = new Point(1174, 172);
             nameTXT.Name = "nameTXT";
             nameTXT.ReadOnly = true;
-            nameTXT.Size = new Size(669, 54);
+            nameTXT.Size = new Size(716, 54);
             nameTXT.TabIndex = 21;
             nameTXT.Text = "";
             nameTXT.MouseDown += idTXT_MouseDown;
@@ -142,45 +144,47 @@
             // emailLBL
             // 
             emailLBL.AutoSize = true;
-            emailLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            emailLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            emailLBL.ForeColor = Color.FromArgb(64, 64, 64);
             emailLBL.Location = new Point(1174, 243);
             emailLBL.Name = "emailLBL";
-            emailLBL.Size = new Size(107, 46);
+            emailLBL.Size = new Size(72, 32);
             emailLBL.TabIndex = 20;
             emailLBL.Text = "Email";
             // 
             // nameLBL
             // 
             nameLBL.AutoSize = true;
-            nameLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            nameLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            nameLBL.ForeColor = Color.FromArgb(64, 64, 64);
             nameLBL.Location = new Point(1174, 137);
             nameLBL.Name = "nameLBL";
-            nameLBL.Size = new Size(114, 46);
+            nameLBL.Size = new Size(79, 32);
             nameLBL.TabIndex = 19;
             nameLBL.Text = "Name";
             // 
             // dobTXT
             // 
-            dobTXT.BackColor = SystemColors.Control;
+            dobTXT.BackColor = Color.White;
             dobTXT.BorderStyle = BorderStyle.None;
-            dobTXT.Font = new Font("Segoe UI", 20F);
-            dobTXT.Location = new Point(1221, 504);
+            dobTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dobTXT.Location = new Point(1174, 490);
             dobTXT.Name = "dobTXT";
             dobTXT.ReadOnly = true;
-            dobTXT.Size = new Size(669, 54);
+            dobTXT.Size = new Size(716, 54);
             dobTXT.TabIndex = 26;
             dobTXT.Text = "";
             dobTXT.MouseDown += idTXT_Mouse;
             // 
             // addressTXT
             // 
-            addressTXT.BackColor = SystemColors.Control;
+            addressTXT.BackColor = Color.White;
             addressTXT.BorderStyle = BorderStyle.None;
-            addressTXT.Font = new Font("Segoe UI", 20F);
-            addressTXT.Location = new Point(1221, 398);
+            addressTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addressTXT.Location = new Point(1174, 384);
             addressTXT.Name = "addressTXT";
             addressTXT.ReadOnly = true;
-            addressTXT.Size = new Size(669, 54);
+            addressTXT.Size = new Size(716, 54);
             addressTXT.TabIndex = 25;
             addressTXT.Text = "";
             addressTXT.MouseDown += idTXT_Mouse;
@@ -188,45 +192,47 @@
             // dobLBL
             // 
             dobLBL.AutoSize = true;
-            dobLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            dobLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            dobLBL.ForeColor = Color.FromArgb(64, 64, 64);
             dobLBL.Location = new Point(1174, 455);
             dobLBL.Name = "dobLBL";
-            dobLBL.Size = new Size(93, 46);
+            dobLBL.Size = new Size(64, 32);
             dobLBL.TabIndex = 24;
             dobLBL.Text = "DOB";
             // 
             // addressLBL
             // 
             addressLBL.AutoSize = true;
-            addressLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            addressLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            addressLBL.ForeColor = Color.FromArgb(64, 64, 64);
             addressLBL.Location = new Point(1174, 349);
             addressLBL.Name = "addressLBL";
-            addressLBL.Size = new Size(148, 46);
+            addressLBL.Size = new Size(100, 32);
             addressLBL.TabIndex = 23;
             addressLBL.Text = "Address";
             // 
             // salaryTXT
             // 
-            salaryTXT.BackColor = SystemColors.Control;
+            salaryTXT.BackColor = Color.White;
             salaryTXT.BorderStyle = BorderStyle.None;
-            salaryTXT.Font = new Font("Segoe UI", 20F);
-            salaryTXT.Location = new Point(1221, 716);
+            salaryTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            salaryTXT.Location = new Point(1174, 702);
             salaryTXT.Name = "salaryTXT";
             salaryTXT.ReadOnly = true;
-            salaryTXT.Size = new Size(669, 54);
+            salaryTXT.Size = new Size(716, 54);
             salaryTXT.TabIndex = 30;
             salaryTXT.Text = "";
             salaryTXT.MouseDown += idTXT_Mouse;
             // 
             // phoneTXT
             // 
-            phoneTXT.BackColor = SystemColors.Control;
+            phoneTXT.BackColor = Color.White;
             phoneTXT.BorderStyle = BorderStyle.None;
-            phoneTXT.Font = new Font("Segoe UI", 20F);
-            phoneTXT.Location = new Point(1221, 610);
+            phoneTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            phoneTXT.Location = new Point(1174, 596);
             phoneTXT.Name = "phoneTXT";
             phoneTXT.ReadOnly = true;
-            phoneTXT.Size = new Size(669, 54);
+            phoneTXT.Size = new Size(716, 54);
             phoneTXT.TabIndex = 29;
             phoneTXT.Text = "";
             phoneTXT.MouseDown += idTXT_Mouse;
@@ -234,32 +240,34 @@
             // salaryLBL
             // 
             salaryLBL.AutoSize = true;
-            salaryLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            salaryLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            salaryLBL.ForeColor = Color.FromArgb(64, 64, 64);
             salaryLBL.Location = new Point(1174, 667);
             salaryLBL.Name = "salaryLBL";
-            salaryLBL.Size = new Size(118, 46);
+            salaryLBL.Size = new Size(81, 32);
             salaryLBL.TabIndex = 28;
             salaryLBL.Text = "Salary";
             // 
             // phoneLBL
             // 
             phoneLBL.AutoSize = true;
-            phoneLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            phoneLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            phoneLBL.ForeColor = Color.FromArgb(64, 64, 64);
             phoneLBL.Location = new Point(1174, 561);
             phoneLBL.Name = "phoneLBL";
-            phoneLBL.Size = new Size(121, 46);
+            phoneLBL.Size = new Size(83, 32);
             phoneLBL.TabIndex = 27;
             phoneLBL.Text = "Phone";
             // 
             // collegeTXT
             // 
-            collegeTXT.BackColor = SystemColors.Control;
+            collegeTXT.BackColor = Color.White;
             collegeTXT.BorderStyle = BorderStyle.None;
-            collegeTXT.Font = new Font("Segoe UI", 20F);
-            collegeTXT.Location = new Point(1221, 822);
+            collegeTXT.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            collegeTXT.Location = new Point(1174, 808);
             collegeTXT.Name = "collegeTXT";
             collegeTXT.ReadOnly = true;
-            collegeTXT.Size = new Size(669, 54);
+            collegeTXT.Size = new Size(716, 54);
             collegeTXT.TabIndex = 33;
             collegeTXT.Text = "";
             collegeTXT.MouseDown += idTXT_Mouse;
@@ -267,18 +275,130 @@
             // collegeLBL
             // 
             collegeLBL.AutoSize = true;
-            collegeLBL.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            collegeLBL.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            collegeLBL.ForeColor = Color.FromArgb(64, 64, 64);
             collegeLBL.Location = new Point(1174, 773);
             collegeLBL.Name = "collegeLBL";
-            collegeLBL.Size = new Size(139, 46);
+            collegeLBL.Size = new Size(95, 32);
             collegeLBL.TabIndex = 31;
             collegeLBL.Text = "College";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(194, 39, 45);
+            panel1.Location = new Point(1174, 232);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(716, 2);
+            panel1.TabIndex = 75;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(194, 39, 45);
+            panel2.Location = new Point(1174, 114);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(716, 2);
+            panel2.TabIndex = 75;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(194, 39, 45);
+            panel3.Location = new Point(1174, 338);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(716, 2);
+            panel3.TabIndex = 75;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(194, 39, 45);
+            panel4.Location = new Point(1174, 444);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(716, 2);
+            panel4.TabIndex = 75;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(194, 39, 45);
+            panel5.Location = new Point(1174, 550);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(716, 2);
+            panel5.TabIndex = 75;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(194, 39, 45);
+            panel6.Location = new Point(1174, 656);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(716, 2);
+            panel6.TabIndex = 75;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(194, 39, 45);
+            panel7.Location = new Point(1174, 762);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(716, 2);
+            panel7.TabIndex = 75;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(194, 39, 45);
+            panel8.Location = new Point(1174, 868);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(716, 2);
+            panel8.TabIndex = 75;
+            // 
+            // topicDATA
+            // 
+            topicDATA.BackgroundColor = Color.White;
+            topicDATA.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            topicDATA.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            topicDATA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(28, 163, 232);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            topicDATA.DefaultCellStyle = dataGridViewCellStyle2;
+            topicDATA.GridColor = Color.FromArgb(240, 240, 240);
+            topicDATA.Location = new Point(12, 94);
+            topicDATA.Name = "topicDATA";
+            topicDATA.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            topicDATA.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            topicDATA.RowHeadersWidth = 51;
+            topicDATA.Size = new Size(1156, 927);
+            topicDATA.TabIndex = 76;
+            topicDATA.CellDoubleClick += topicDATA_CellDoubleClick;
             // 
             // StudentDepartmentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(topicDATA);
+            Controls.Add(panel8);
+            Controls.Add(panel7);
+            Controls.Add(panel6);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(collegeTXT);
             Controls.Add(collegeLBL);
             Controls.Add(salaryTXT);
@@ -297,7 +417,6 @@
             Controls.Add(deptLIST);
             Controls.Add(deptLBL);
             Controls.Add(returnBTN);
-            Controls.Add(topicDATA);
             Name = "StudentDepartmentForm";
             Text = "CourseTopicForm";
             FormClosed += CourseTopicForm_FormClosed;
@@ -309,7 +428,6 @@
         #endregion
 
         private Button returnBTN;
-        private DataGridView topicDATA;
         private Label deptLBL;
         private ComboBox deptLIST;
         private Button showBTN;
@@ -327,5 +445,14 @@
         private Label phoneLBL;
         private RichTextBox collegeTXT;
         private Label collegeLBL;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
+        private Panel panel4;
+        private Panel panel5;
+        private Panel panel6;
+        private Panel panel7;
+        private Panel panel8;
+        private DataGridView topicDATA;
     }
 }

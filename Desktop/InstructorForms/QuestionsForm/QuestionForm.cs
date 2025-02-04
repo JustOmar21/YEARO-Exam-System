@@ -126,6 +126,7 @@ namespace Desktop.InstructorForms
             var box = sender as ComboBox;
             if (box.SelectedItem.ToString() == "T/F")
             {
+                panel6.Visible = panel7.Visible =
                 choice3LBL.Visible = choice4LBL.Visible =
                 choice3TXT.Visible = choice4TXT.Visible =
                 correctChoice3.Visible = correctChoice4.Visible = false;
@@ -145,6 +146,7 @@ namespace Desktop.InstructorForms
             }
             else if (box.SelectedItem.ToString() == "MCQ")
             {
+                panel6.Visible = panel7.Visible =
                 choice3LBL.Visible = choice4LBL.Visible =
                 choice3TXT.Visible = choice4TXT.Visible =
                 correctChoice3.Visible = correctChoice4.Visible = true;
@@ -273,7 +275,7 @@ namespace Desktop.InstructorForms
                     context.Questions.Add(newQuestion);
                     context.SaveChanges();
                     MessageBox.Show($"Question added successfull", "Succuss", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    endViewBTN_Click(new object(),new EventArgs());
+                    endViewBTN_Click(new object(), new EventArgs());
                     refreshBTN.PerformClick();
                     refreshBTN.PerformClick();
                 }
@@ -287,7 +289,7 @@ namespace Desktop.InstructorForms
                     {
                         MessageBox.Show("Choices body cannot be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if(new[] {choice1TXT.Text.Trim(),choice2TXT.Text.Trim(),choice3TXT.Text.Trim(),choice4TXT.Text.Trim()}
+                    else if (new[] { choice1TXT.Text.Trim(), choice2TXT.Text.Trim(), choice3TXT.Text.Trim(), choice4TXT.Text.Trim() }
                             .Distinct().Count() != 4)
                     {
                         MessageBox.Show("There can't be any duplicate choices", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -327,5 +329,6 @@ namespace Desktop.InstructorForms
                 }
             }
         }
+
     }
 }

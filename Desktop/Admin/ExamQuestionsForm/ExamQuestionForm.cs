@@ -120,13 +120,13 @@ namespace Desktop.Admin.ExamQuestionsForm
                 choice4TXT.Text = $"{dataGrid.Rows[e.RowIndex].Cells[7].Value}";
 
                 var type = $"{dataGrid.Rows[e.RowIndex].Cells[2].Value}";
-                if(type == "MCQ")
+                if (type == "MCQ")
                 {
                     choice3LBL.Visible = choice4LBL.Visible =
                     choice3TXT.Visible = choice4TXT.Visible =
                     correctChoice3.Visible = correctChoice4.Visible = true;
                 }
-                else if(type == "T/F")
+                else if (type == "T/F")
                 {
                     choice3LBL.Visible = choice4LBL.Visible =
                     choice3TXT.Visible = choice4TXT.Visible =

@@ -16,11 +16,9 @@ namespace Desktop
 
             // User TextBox
             //userTXT.PlaceholderText = "e.g Omar@example.com";
-            userTXT.Text = "john@example.com";
 
             // Password TextBox
             //passTXT.PlaceholderText = "e.g ********* :-)";
-            passTXT.Text = "123";
 
             // Login Button
             logBTN.BackColor = Color.FromArgb(194, 39, 45);

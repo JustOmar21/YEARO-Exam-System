@@ -24,7 +24,7 @@ namespace Desktop
                 "iti-logo.ico"
                 );
             form.Icon = new Icon(imagePath);
-            //form.BackColor = UIConfig.SecondaryColorDark;
+            form.BackColor = Color.White;
             form.FormBorderStyle = FormBorderStyle.None;
             form.WindowState = FormWindowState.Maximized;
         }

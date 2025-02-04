@@ -26,7 +26,6 @@ namespace Desktop.StudentForms.ExamsForm
             this.course = course;
             Utilites.InitForm(this, $"Exams of '{course.Name}'");
 
-            nameTXT.BackColor = UIConfig.SecondaryColorDark;
             datePICK.Format = DateTimePickerFormat.Custom;
             datePICK.CustomFormat = "dd-MM-yyyy hh:mm tt";
             datePICK.Value = DateTime.Now.Date.AddDays(1).AddHours(9);

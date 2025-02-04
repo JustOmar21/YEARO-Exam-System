@@ -39,6 +39,13 @@ namespace Desktop.InstructorForms.Exams
 
 
             FillTable();
+
+            bodyTXT.ReadOnly = degreeNUM.ReadOnly =
+                choice1TXT.ReadOnly = choice2TXT.ReadOnly =
+                choice3TXT.ReadOnly = choice4TXT.ReadOnly = true;
+            typeBOX.Enabled =
+            correctChoice1.Enabled = correctChoice2.Enabled =
+            correctChoice3.Enabled = correctChoice4.Enabled = false;
         }
 
         private void QuestionForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -134,9 +141,6 @@ namespace Desktop.InstructorForms.Exams
                 choice3TXT.Visible = choice4TXT.Visible =
                 correctChoice3.Visible = correctChoice4.Visible = false;
 
-                choice1TXT.ReadOnly = choice2TXT.ReadOnly =
-                choice3TXT.ReadOnly = choice4TXT.ReadOnly = true;
-                correctChoice3.Enabled = correctChoice4.Enabled = false;
 
                 choice1TXT.Text = "True";
                 choice2TXT.Text = "False";
@@ -153,9 +157,6 @@ namespace Desktop.InstructorForms.Exams
                 choice3TXT.Visible = choice4TXT.Visible =
                 correctChoice3.Visible = correctChoice4.Visible = true;
 
-                choice1TXT.ReadOnly = choice2TXT.ReadOnly =
-                choice3TXT.ReadOnly = choice4TXT.ReadOnly = false;
-                correctChoice3.Enabled = correctChoice4.Enabled = true;
 
                 choice1TXT.Text = choice2TXT.Text =
                 choice3TXT.Text = choice4TXT.Text = "";
@@ -199,15 +200,7 @@ namespace Desktop.InstructorForms.Exams
 
         private void endViewBTN_Click(object sender, EventArgs e)
         {
-            bodyTXT.ReadOnly = degreeNUM.ReadOnly =
-            choice1TXT.ReadOnly = choice2TXT.ReadOnly =
-            choice3TXT.ReadOnly = choice4TXT.ReadOnly = false;
-            typeBOX.Enabled =
-            correctChoice1.Enabled = correctChoice2.Enabled =
-            correctChoice3.Enabled = correctChoice4.Enabled = true;
 
-
-            endViewBTN.Visible = false;
 
             bodyTXT.Text = idTXT.Text =
             choice3TXT.Text = choice4TXT.Text = "";
