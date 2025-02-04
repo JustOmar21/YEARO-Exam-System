@@ -1,4 +1,4 @@
-using Desktop.Data;
+﻿using Desktop.Data;
 using Microsoft.EntityFrameworkCore;
 namespace Desktop
 {
@@ -8,28 +8,27 @@ namespace Desktop
         public Login()
         {
             InitializeComponent();
-            Utilites.InitForm(this, "Login");
+            //Utilites.InitForm(this, "Login");
+            Text = "Login";
 
             // Header
             Header.ForeColor = UIConfig.TextColor;
 
             // User TextBox
-            userTXT.PlaceholderText = "e.g Omar@example.com";
-            userTXT.Text = "jane@example.com";
+            //userTXT.PlaceholderText = "e.g Omar@example.com";
+            userTXT.Text = "john@example.com";
 
             // Password TextBox
-            passTXT.PlaceholderText = "e.g ********* :-)";
-            passTXT.Text = "321";
+            //passTXT.PlaceholderText = "e.g ********* :-)";
+            passTXT.Text = "123";
 
             // Login Button
-            logBTN.BackColor = Color.Blue;
+            logBTN.BackColor = Color.FromArgb(194, 39, 45);
             logBTN.ForeColor = Color.White;
 
             // Warning Label
             warningLBL.Hide();
 
-            this.MinimizeBox = false;
-            WindowState = FormWindowState.Maximized;
         }
 
         private void logBTN_Click(object sender, EventArgs e)
@@ -74,16 +73,44 @@ namespace Desktop
             passTXT.Text = "";
         }
 
-        private void logBTN_MouseHover(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            button.BackColor = Color.RoyalBlue;
-        }
 
         private void logBTN_MouseLeave(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            button.BackColor = Color.Blue;
+            logBTN.BackColor = Color.FromArgb(194, 39, 45);
+        }
+
+        private void logBTN_MouseEnter(object sender, EventArgs e)
+        {
+            logBTN.BackColor = Color.FromArgb(220, 194, 39, 45);
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lockPIC_Click(object sender, EventArgs e)
+        {
+            if (passTXT.UseSystemPasswordChar)
+            {
+                string imagePath = Path.Combine(
+                Application.StartupPath.Split(@"\bin")[0],
+                "Images",
+                "unlock.png"
+                );
+                lockPIC.Image = Image.FromFile(imagePath);
+                passTXT.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                string imagePath = Path.Combine(
+                Application.StartupPath.Split(@"\bin")[0],
+                "Images",
+                "lock.png"
+                );
+                lockPIC.Image = Image.FromFile(imagePath);
+                passTXT.UseSystemPasswordChar = true;
+            }
         }
     }
 }
