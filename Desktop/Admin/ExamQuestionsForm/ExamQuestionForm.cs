@@ -52,7 +52,6 @@ namespace Desktop.Admin.ExamQuestionsForm
         {
             var questions = context.Questions
                 .Include(qt => qt.Choices)
-                .Include(qt => qt.Answer_Exams)
                 .Where(qt => qt.Answer_Exams.Any(ans => ans.ExamID == (int)examLIST.SelectedValue))
                 .ToList();
             DataTable dt = new DataTable();
