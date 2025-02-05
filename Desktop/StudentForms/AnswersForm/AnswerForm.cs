@@ -111,6 +111,7 @@ namespace Desktop.StudentForms.AnswersForm
 
         private void AnswerForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            timer.Dispose();
             super.Show();
         }
 
